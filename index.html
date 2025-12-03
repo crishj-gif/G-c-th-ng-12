@@ -227,43 +227,74 @@
     <script>
         // Dữ liệu Lịch Gác đầy đủ
         const SCHEDULE_DATA = [
-            { day: 1, weekday: 'Thứ Hai', position: 'Nhà', group: 'Nhóm 2', c1: 'Nguyễn Việt Hoàng', c2: 'Đoàn Tuấn Minh', c3: 'Hoàng Hải Đăng', c4: 'Lê Khả Duy', c5: 'Phạm Văn Trà', c6: 'Bùi Tri Đích', c7: 'Phùng Vinh Hiển' },
-            { day: 1, weekday: 'Thứ Hai', position: 'Tiểu đoàn', group: 'Nhóm 1', c1: 'Trương Hoàng Minh', c2: 'Nguyễn Hữu Trường Sơn', c3: 'Vũ Ngọc Quyết', c4: 'Lê Minh Hùng', c5: 'Nguyễn Ngọc Nam Khánh', c6: 'Trương Vi Thiện', c7: 'Nguyễn Bảo Long' },
-            { day: 2, weekday: 'Thứ Ba', position: 'Học viện', group: 'Nhóm 1', c1: 'Nguyễn Bảo Long', c2: 'Trương Hoàng Minh', c3: 'Nguyễn Hữu Trường Sơn', c4: 'Vũ Ngọc Quyết', c5: 'Lê Minh Hùng', c6: 'Nguyễn Ngọc Nam Khánh', c7: 'Trương Vi Thiện' },
-            { day: 3, weekday: 'Thứ Tư', position: 'Nhà', group: 'Nhóm 2', c1: 'Phùng Vinh Hiển', c2: 'Nguyễn Việt Hoàng', c3: 'Đoàn Tuấn Minh', c4: 'Hoàng Hải Đăng', c5: 'Lê Khả Duy', c6: 'Phạm Văn Trà', c7: 'Bùi Tri Đích' },
-            // Ngày 4/12 (Thứ Năm) là ngày nghỉ gác
-            { day: 5, weekday: 'Thứ Sáu', position: 'Nhà', group: 'Nhóm 1', c1: 'Trương Vi Thiện', c2: 'Nguyễn Bảo Long', c3: 'Trương Hoàng Minh', c4: 'Nguyễn Hữu Trường Sơn', c5: 'Vũ Ngọc Quyết', c6: 'Lê Minh Hùng', c7: 'Nguyễn Ngọc Nam Khánh' },
-            { day: 5, weekday: 'Thứ Sáu', position: 'Học viện', group: 'Nhóm 2', c1: 'Bùi Tri Đích', c2: 'Phùng Vinh Hiển', c3: 'Nguyễn Việt Hoàng', c4: 'Đoàn Tuấn Minh', c5: 'Hoàng Hải Đăng', c6: 'Lê Khả Duy', c7: 'Phạm Văn Trà' },
-            { day: 7, weekday: 'Chủ Nhật', position: 'Nhà', group: 'Nhóm 1', c1: 'Nguyễn Ngọc Nam Khánh', c2: 'Trương Vi Thiện', c3: 'Nguyễn Bảo Long', c4: 'Trương Hoàng Minh', c5: 'Nguyễn Hữu Trường Sơn', c6: 'Vũ Ngọc Quyết', c7: 'Lê Minh Hùng' },
-            // Ngày 8/12 (Thứ Hai) là ngày nghỉ gác
-            { day: 9, weekday: 'Thứ Ba', position: 'Nhà', group: 'Nhóm 2', c1: 'Phạm Văn Trà', c2: 'Bùi Tri Đích', c3: 'Phùng Vinh Hiển', c4: 'Nguyễn Việt Hoàng', c5: 'Đoàn Tuấn Minh', c6: 'Hoàng Hải Đăng', c7: 'Lê Khả Duy' },
-            { day: 10, weekday: 'Thứ Tư', position: 'Học viện', group: 'Nhóm 1', c1: 'Lê Minh Hùng', c2: 'Nguyễn Ngọc Nam Khánh', c3: 'Trương Vi Thiện', c4: 'Nguyễn Bảo Long', c5: 'Trương Hoàng Minh', c6: 'Nguyễn Hữu Trường Sơn', c7: 'Vũ Ngọc Quyết' },
-            { day: 11, weekday: 'Thứ Năm', position: 'Nhà', group: 'Nhóm 2', c1: 'Lê Khả Duy', c2: 'Phạm Văn Trà', c3: 'Bùi Tri Đích', c4: 'Phùng Vinh Hiển', c5: 'Nguyễn Việt Hoàng', c6: 'Đoàn Tuấn Minh', c7: 'Hoàng Hải Đăng' },
-            // Ngày 12/12 (Thứ Sáu) là ngày nghỉ gác
-            { day: 13, weekday: 'Thứ Bảy', position: 'Nhà', group: 'Nhóm 1', c1: 'Vũ Ngọc Quyết', c2: 'Lê Minh Hùng', c3: 'Nguyễn Ngọc Nam Khánh', c4: 'Trương Vi Thiện', c5: 'Nguyễn Bảo Long', c6: 'Trương Hoàng Minh', c7: 'Nguyễn Hữu Trường Sơn' },
-            { day: 13, weekday: 'Thứ Bảy', position: 'Học viện', group: 'Nhóm 2', c1: 'Hoàng Hải Đăng', c2: 'Lê Khả Duy', c3: 'Phạm Văn Trà', c4: 'Bùi Tri Đích', c5: 'Phùng Vinh Hiển', c6: 'Nguyễn Việt Hoàng', c7: 'Đoàn Tuấn Minh' },
-            // Ngày 14/12 (Chủ Nhật) là ngày nghỉ gác
-            { day: 15, weekday: 'Thứ Hai', position: 'Nhà', group: 'Nhóm 1', c1: 'Nguyễn Hữu Trường Sơn', c2: 'Vũ Ngọc Quyết', c3: 'Lê Minh Hùng', c4: 'Nguyễn Ngọc Nam Khánh', c5: 'Trương Vi Thiện', c6: 'Nguyễn Bảo Long', c7: 'Trương Hoàng Minh' },
-            { day: 16, weekday: 'Thứ Ba', position: 'Tiểu đoàn', group: 'Nhóm 2', c1: 'Đoàn Tuấn Minh', c2: 'Hoàng Hải Đăng', c3: 'Lê Khả Duy', c4: 'Phạm Văn Trà', c5: 'Bùi Tri Đích', c6: 'Phùng Vinh Hiển', c7: 'Nguyễn Việt Hoàng' },
-            { day: 17, weekday: 'Thứ Tư', position: 'Nhà', group: 'Nhóm 2', c1: 'Nguyễn Việt Hoàng', c2: 'Đoàn Tuấn Minh', c3: 'Hoàng Hải Đăng', c4: 'Lê Khả Duy', c5: 'Phạm Văn Trà', c6: 'Bùi Tri Đích', c7: 'Phùng Vinh Hiển' },
-            { day: 17, weekday: 'Thứ Tư', position: 'Học viện', group: 'Nhóm 1', c1: 'Trương Hoàng Minh', c2: 'Nguyễn Hữu Trường Sơn', c3: 'Vũ Ngọc Quyết', c4: 'Lê Minh Hùng', c5: 'Nguyễn Ngọc Nam Khánh', c6: 'Trương Vi Thiện', c7: 'Nguyễn Bảo Long' },
-            // Ngày 18/12 (Thứ Năm) là ngày nghỉ gác
-            { day: 19, weekday: 'Thứ Sáu', position: 'Nhà', group: 'Nhóm 2', c1: 'Phùng Vinh Hiển', c2: 'Nguyễn Việt Hoàng', c3: 'Đoàn Tuấn Minh', c4: 'Hoàng Hải Đăng', c5: 'Lê Khả Duy', c6: 'Phạm Văn Trà', c7: 'Bùi Tri Đích' },
-            { day: 20, weekday: 'Thứ Bảy', position: 'Học viện', group: 'Nhóm 1', c1: 'Nguyễn Bảo Long', c2: 'Trương Hoàng Minh', c3: 'Nguyễn Hữu Trường Sơn', c4: 'Vũ Ngọc Quyết', c5: 'Lê Minh Hùng', c6: 'Nguyễn Ngọc Nam Khánh', c7: 'Trương Vi Thiện' },
-            { day: 21, weekday: 'Chủ Nhật', position: 'Nhà', group: 'Nhóm 2', c1: 'Bùi Tri Đích', c2: 'Phùng Vinh Hiển', c3: 'Nguyễn Việt Hoàng', c4: 'Đoàn Tuấn Minh', c5: 'Hoàng Hải Đăng', c6: 'Lê Khả Duy', c7: 'Phạm Văn Trà' },
-            // Ngày 22/12 (Thứ Hai) là ngày nghỉ gác
-            { day: 23, weekday: 'Thứ Ba', position: 'Nhà', group: 'Nhóm 1', c1: 'Trương Vi Thiện', c2: 'Nguyễn Bảo Long', c3: 'Trương Hoàng Minh', c4: 'Nguyễn Hữu Trường Sơn', c5: 'Vũ Ngọc Quyết', c6: 'Lê Minh Hùng', c7: 'Nguyễn Ngọc Nam Khánh' },
-            // Ngày 24/12 (Thứ Tư) là ngày nghỉ gác
-            { day: 25, weekday: 'Thứ Năm', position: 'Nhà', group: 'Nhóm 1', c1: 'Nguyễn Ngọc Nam Khánh', c2: 'Trương Vi Thiện', c3: 'Nguyễn Bảo Long', c4: 'Trương Hoàng Minh', c5: 'Nguyễn Hữu Trường Sơn', c6: 'Vũ Ngọc Quyết', c7: 'Lê Minh Hùng' },
-            { day: 25, weekday: 'Thứ Năm', position: 'Học viện', group: 'Nhóm 2', c1: 'Phạm Văn Trà', c2: 'Bùi Tri Đích', c3: 'Phùng Vinh Hiển', c4: 'Nguyễn Việt Hoàng', c5: 'Đoàn Tuấn Minh', c6: 'Hoàng Hải Đăng', c7: 'Lê Khả Duy' },
-            // Ngày 26/12 (Thứ Sáu) là ngày nghỉ gác
-            { day: 27, weekday: 'Thứ Bảy', position: 'Nhà', group: 'Nhóm 1', c1: 'Lê Minh Hùng', c2: 'Nguyễn Ngọc Nam Khánh', c3: 'Trương Vi Thiện', c4: 'Nguyễn Bảo Long', c5: 'Trương Hoàng Minh', c6: 'Nguyễn Hữu Trường Sơn', c7: 'Vũ Ngọc Quyết' },
-            { day: 28, weekday: 'Chủ Nhật', position: 'Học viện', group: 'Nhóm 2', c1: 'Lê Khả Duy', c2: 'Phạm Văn Trà', c3: 'Bùi Tri Đích', c4: 'Phùng Vinh Hiển', c5: 'Nguyễn Việt Hoàng', c6: 'Đoàn Tuấn Minh', c7: 'Hoàng Hải Đăng' },
-            { day: 29, weekday: 'Thứ Hai', position: 'Nhà', group: 'Nhóm 1', c1: 'Vũ Ngọc Quyết', c2: 'Lê Minh Hùng', c3: 'Nguyễn Ngọc Nam Khánh', c4: 'Trương Vi Thiện', c5: 'Nguyễn Bảo Long', c6: 'Trương Hoàng Minh', c7: 'Nguyễn Hữu Trường Sơn' },
-            // Ngày 30/12 (Thứ Ba) là ngày nghỉ gác
-            { day: 31, weekday: 'Thứ Tư', position: 'Nhà', group: 'Nhóm 2', c1: 'Hoàng Hải Đăng', c2: 'Lê Khả Duy', c3: 'Phạm Văn Trà', c4: 'Bùi Tri Đích', c5: 'Phùng Vinh Hiển', c6: 'Nguyễn Việt Hoàng', c7: 'Đoàn Tuấn Minh' },
-        ];
+    // Ngày 1/12 (Thứ Hai)
+    { day: 1, weekday: 'Thứ Hai', position: 'Nhà', group: 'Nhóm 2', c1: 'Nguyễn Việt Hoàng', c2: 'Đoàn Tuấn Minh', c3: 'Hoàng Hải Đăng', c4: 'Lê Khả Duy', c5: 'Phạm Văn Trà', c6: 'Bùi Tri Đích', c7: 'Phùng Vinh Hiển' },
+  { day: 1, weekday: 'Thứ Hai', position: 'Tiểu đoàn', group: 'Nhóm 1', c1: 'Trương Hoàng Minh', c2: 'Nguyễn Hữu Trường Sơn', c3: 'Vũ Ngọc Quyết', c4: 'Lê Minh Hùng', c5: 'Nguyễn Ngọc Nam Khánh', c6: 'Trương Vi Thiện', c7: 'Nguyễn Bảo Long' },
 
+  { day: 2, weekday: 'Thứ Ba', position: 'Học viện', group: 'Nhóm 2', c1: 'Phùng Vinh Hiển', c2: 'Nguyễn Việt Hoàng', c3: 'Đoàn Tuấn Minh', c4: 'Hoàng Hải Đăng', c5: 'Lê Khả Duy', c6: 'Phạm Văn Trà', c7: 'Bùi Tri Đích' },
+
+  { day: 3, weekday: 'Thứ Tư', position: 'Nhà', group: 'Nhóm 1', c1: 'Nguyễn Bảo Long', c2: 'Trương Hoàng Minh', c3: 'Nguyễn Hữu Trường Sơn', c4: 'Vũ Ngọc Quyết', c5: 'Lê Minh Hùng', c6: 'Nguyễn Ngọc Nam Khánh', c7: 'Trương Vi Thiện' },
+
+  { day: 4, weekday: 'Thứ Năm', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 5, weekday: 'Thứ Sáu', position: 'Nhà', group: 'Nhóm 2', c1: 'Bùi Tri Đích', c2: 'Phùng Vinh Hiển', c3: 'Nguyễn Việt Hoàng', c4: 'Đoàn Tuấn Minh', c5: 'Hoàng Hải Đăng', c6: 'Lê Khả Duy', c7: 'Phạm Văn Trà' },
+  { day: 5, weekday: 'Thứ Sáu', position: 'Học viện', group: 'Nhóm 1', c1: 'Trương Vi Thiện', c2: 'Nguyễn Bảo Long', c3: 'Trương Hoàng Minh', c4: 'Nguyễn Hữu Trường Sơn', c5: 'Vũ Ngọc Quyết', c6: 'Lê Minh Hùng', c7: 'Nguyễn Ngọc Nam Khánh' },
+
+  { day: 6, weekday: 'Thứ Bảy', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 7, weekday: 'Chủ Nhật', position: 'Nhà', group: 'Nhóm 2', c1: 'Phạm Văn Trà', c2: 'Bùi Tri Đích', c3: 'Phùng Vinh Hiển', c4: 'Nguyễn Việt Hoàng', c5: 'Đoàn Tuấn Minh', c6: 'Hoàng Hải Đăng', c7: 'Lê Khả Duy' },
+
+  { day: 8, weekday: 'Thứ Hai', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 9, weekday: 'Thứ Ba', position: 'Nhà', group: 'Nhóm 1', c1: 'Nguyễn Ngọc Nam Khánh', c2: 'Trương Vi Thiện', c3: 'Nguyễn Bảo Long', c4: 'Trương Hoàng Minh', c5: 'Nguyễn Hữu Trường Sơn', c6: 'Vũ Ngọc Quyết', c7: 'Lê Minh Hùng' },
+
+  { day: 10, weekday: 'Thứ Tư', position: 'Học viện', group: 'Nhóm 2', c1: 'Lê Khả Duy', c2: 'Phạm Văn Trà', c3: 'Bùi Tri Đích', c4: 'Phùng Vinh Hiển', c5: 'Nguyễn Việt Hoàng', c6: 'Đoàn Tuấn Minh', c7: 'Hoàng Hải Đăng' },
+
+  { day: 11, weekday: 'Thứ Năm', position: 'Nhà', group: 'Nhóm 1', c1: 'Lê Minh Hùng', c2: 'Nguyễn Ngọc Nam Khánh', c3: 'Trương Vi Thiện', c4: 'Nguyễn Bảo Long', c5: 'Trương Hoàng Minh', c6: 'Nguyễn Hữu Trường Sơn', c7: 'Vũ Ngọc Quyết' },
+
+  { day: 12, weekday: 'Thứ Sáu', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 13, weekday: 'Thứ Bảy', position: 'Nhà', group: 'Nhóm 2', c1: 'Hoàng Hải Đăng', c2: 'Lê Khả Duy', c3: 'Phạm Văn Trà', c4: 'Bùi Tri Đích', c5: 'Phùng Vinh Hiển', c6: 'Nguyễn Việt Hoàng', c7: 'Đoàn Tuấn Minh' },
+  { day: 13, weekday: 'Thứ Bảy', position: 'Học viện', group: 'Nhóm 1', c1: 'Vũ Ngọc Quyết', c2: 'Lê Minh Hùng', c3: 'Nguyễn Ngọc Nam Khánh', c4: 'Trương Vi Thiện', c5: 'Nguyễn Bảo Long', c6: 'Trương Hoàng Minh', c7: 'Nguyễn Hữu Trường Sơn' },
+
+  { day: 14, weekday: 'Chủ Nhật', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 15, weekday: 'Thứ Hai', position: 'Nhà', group: 'Nhóm 2', c1: 'Đoàn Tuấn Minh', c2: 'Hoàng Hải Đăng', c3: 'Lê Khả Duy', c4: 'Phạm Văn Trà', c5: 'Bùi Tri Đích', c6: 'Phùng Vinh Hiển', c7: 'Nguyễn Việt Hoàng' },
+
+  { day: 16, weekday: 'Thứ Ba', position: 'Tiểu đoàn', group: 'Nhóm 1', c1: 'Nguyễn Hữu Trường Sơn', c2: 'Vũ Ngọc Quyết', c3: 'Lê Minh Hùng', c4: 'Nguyễn Ngọc Nam Khánh', c5: 'Trương Vi Thiện', c6: 'Nguyễn Bảo Long', c7: 'Trương Hoàng Minh' },
+
+  { day: 17, weekday: 'Thứ Tư', position: 'Nhà', group: 'Nhóm 2', c1: 'Nguyễn Việt Hoàng', c2: 'Đoàn Tuấn Minh', c3: 'Hoàng Hải Đăng', c4: 'Lê Khả Duy', c5: 'Phạm Văn Trà', c6: 'Bùi Tri Đích', c7: 'Phùng Vinh Hiển' },
+  { day: 17, weekday: 'Thứ Tư', position: 'Học viện', group: 'Nhóm 2', c1: 'Phùng Vinh Hiển', c2: 'Nguyễn Việt Hoàng', c3: 'Đoàn Tuấn Minh', c4: 'Hoàng Hải Đăng', c5: 'Lê Khả Duy', c6: 'Phạm Văn Trà', c7: 'Bùi Tri Đích' },
+
+  { day: 18, weekday: 'Thứ Năm', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 19, weekday: 'Thứ Sáu', position: 'Nhà', group: 'Nhóm 1', c1: 'Trương Hoàng Minh', c2: 'Nguyễn Hữu Trường Sơn', c3: 'Vũ Ngọc Quyết', c4: 'Lê Minh Hùng', c5: 'Nguyễn Ngọc Nam Khánh', c6: 'Trương Vi Thiện', c7: 'Nguyễn Bảo Long' },
+
+  { day: 20, weekday: 'Thứ Bảy', position: 'Học viện', group: 'Nhóm 1', c1: 'Nguyễn Bảo Long', c2: 'Trương Hoàng Minh', c3: 'Nguyễn Hữu Trường Sơn', c4: 'Vũ Ngọc Quyết', c5: 'Lê Minh Hùng', c6: 'Nguyễn Ngọc Nam Khánh', c7: 'Trương Vi Thiện' },
+
+  { day: 21, weekday: 'Chủ Nhật', position: 'Nhà', group: 'Nhóm 2', c1: 'Bùi Tri Đích', c2: 'Phùng Vinh Hiển', c3: 'Nguyễn Việt Hoàng', c4: 'Đoàn Tuấn Minh', c5: 'Hoàng Hải Đăng', c6: 'Lê Khả Duy', c7: 'Phạm Văn Trà' },
+
+  { day: 22, weekday: 'Thứ Hai', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 23, weekday: 'Thứ Ba', position: 'Nhà', group: 'Nhóm 1', c1: 'Trương Vi Thiện', c2: 'Nguyễn Bảo Long', c3: 'Trương Hoàng Minh', c4: 'Nguyễn Hữu Trường Sơn', c5: 'Vũ Ngọc Quyết', c6: 'Lê Minh Hùng', c7: 'Nguyễn Ngọc Nam Khánh' },
+
+  { day: 24, weekday: 'Thứ Tư', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 25, weekday: 'Thứ Năm', position: 'Nhà', group: 'Nhóm 2', c1: 'Phạm Văn Trà', c2: 'Bùi Tri Đích', c3: 'Phùng Vinh Hiển', c4: 'Nguyễn Việt Hoàng', c5: 'Đoàn Tuấn Minh', c6: 'Hoàng Hải Đăng', c7: 'Lê Khả Duy' },
+  { day: 25, weekday: 'Thứ Năm', position: 'Học viện', group: 'Nhóm 2', c1: 'Lê Khả Duy', c2: 'Phạm Văn Trà', c3: 'Bùi Tri Đích', c4: 'Phùng Vinh Hiển', c5: 'Nguyễn Việt Hoàng', c6: 'Đoàn Tuấn Minh', c7: 'Hoàng Hải Đăng' },
+
+  { day: 26, weekday: 'Thứ Sáu', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 27, weekday: 'Thứ Bảy', position: 'Nhà', group: 'Nhóm 1', c1: 'Nguyễn Ngọc Nam Khánh', c2: 'Trương Vi Thiện', c3: 'Nguyễn Bảo Long', c4: 'Trương Hoàng Minh', c5: 'Nguyễn Hữu Trường Sơn', c6: 'Vũ Ngọc Quyết', c7: 'Lê Minh Hùng' },
+
+  { day: 28, weekday: 'Chủ Nhật', position: 'Học viện', group: 'Nhóm 1', c1: 'Lê Minh Hùng', c2: 'Nguyễn Ngọc Nam Khánh', c3: 'Trương Vi Thiện', c4: 'Nguyễn Bảo Long', c5: 'Trương Hoàng Minh', c6: 'Nguyễn Hữu Trường Sơn', c7: 'Vũ Ngọc Quyết' },
+
+  { day: 29, weekday: 'Thứ Hai', position: 'Nhà', group: 'Nhóm 2', c1: 'Hoàng Hải Đăng', c2: 'Lê Khả Duy', c3: 'Phạm Văn Trà', c4: 'Bùi Tri Đích', c5: 'Phùng Vinh Hiển', c6: 'Nguyễn Việt Hoàng', c7: 'Đoàn Tuấn Minh' },
+
+  { day: 30, weekday: 'Thứ Ba', position: 'Nghỉ', group: '-', c1: '-', c2: '-', c3: '-', c4: '-', c5: '-', c6: '-', c7: '-' },
+
+  { day: 31, weekday: 'Thứ Tư', position: 'Nhà', group: 'Nhóm 1', c1: 'Vũ Ngọc Quyết', c2: 'Lê Minh Hùng', c3: 'Nguyễn Ngọc Nam Khánh', c4: 'Trương Vi Thiện', c5: 'Nguyễn Bảo Long', c6: 'Trương Hoàng Minh', c7: 'Nguyễn Hữu Trường Sơn' }
+];
         // Ánh xạ dữ liệu lịch gác theo ngày để dễ truy cập
         const scheduleMap = SCHEDULE_DATA.reduce((acc, item) => {
             if (!acc[item.day]) {
@@ -548,11 +579,20 @@
             setInterval(updateTime, 1000); // Cập nhật thời gian mỗi giây
 
             // Tự động mở lịch gác của ngày hôm nay (1/12/2025)
-            const today = new Date();
-            // Thiết lập mặc định là 1/12/2025
-            const currentDay = 1; 
-            const currentMonth = 12;
-            const currentYear = 2025;
+            // Tự động mở lịch gác theo ngày thực tế khi người dùng truy cập
+            const now = new Date();
+            const currentDay = now.getDate();
+            const currentMonth = now.getMonth() + 1;
+            const currentYear = now.getFullYear();
+
+            if (currentMonth === 12 && currentYear === 2025) {
+                const todayButton = document.querySelector(`#calendar-grid div[data-day="${currentDay}"]`);
+                if (todayButton) {
+                    const isNoSchedule = !scheduleMap[currentDay] || scheduleMap[currentDay].length === 0;
+                    showScheduleInModal(currentDay, todayButton, isNoSchedule);
+                }
+            }
+
             
             // Tìm nút ngày hôm nay trong lịch
             const todayButton = document.querySelector(`#calendar-grid div[data-day="${currentDay}"]`);
